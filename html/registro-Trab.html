@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro_Trab</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>Registro</title>
+  <link rel="stylesheet" href="../css/bootstrap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
@@ -59,14 +59,13 @@
 </header>
 <body class="bg-body-secondary">
   
-
-  <div class="container py-5">
+  <div class="container mb-5 py-4 ">
     <div id="registroContainer">
       <div class="row">
         <div class="col-md-6 offset-md-3">
           <div class="card py-4">
             <div class="card-body">
-              <h5 class="card-title text-center ">Registro de Trabajador</h5>
+              <h5 class="card-title text-center pb-5">Registrar Como Trabajador</h5>
               <form id="registroForm">
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre:</label>
@@ -81,62 +80,49 @@
                   <input type="text" class="form-control" id="edad" required>
                 </div>
                 <div class="mb-3">
-                  <label for="tipoDocumento" class="form-label">Tipo de Documento:</label>
-                  <select class="form-select" id="tipoDocumento" required>
-                    <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="Cedula de Ciudadania">Cédula de Ciudadanía</option>
-                    <option value="Cedula Extranjera">Cédula Extranjera</option>
-                    <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-                  </select>
+                  <label for="txtProfesion" class="form-label">Que profesion ejerce:</label>
+                  <input type="text" class="form-control" id="profesion" required>
                 </div>
                 <div class="mb-3">
-                  <label for="numeroIdentificacion" class="form-label">No. de Identificación:</label>
-                  <input type="text" class="form-control" id="numeroIdentificacion" required>
-                </div>
-                <div class="mb-3">
-                    <label for="telefono" class="form-label">Telefono</label>
+                    <label for="Telefono" class="form-label">Telefono</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">+57</span>
-                        <input type="tel" class="form-control" placeholder="" aria-label="telefono" aria-describedby="basic-addon1" id="telefono" required >
+                        <input type="tel" class="form-control" placeholder="" aria-label="Telefono" aria-describedby="basic-addon1" id="telefono" required >
                       </div>
                 </div>
-                <div class="mb-3">
-                  <label for="profesion" class="form-label">Que profesion ejerce:</label>
-                  <input type="text" class="form-control" id=profesion" required>
-                </div>
+               
                 <div class="mb-3">
                   <label for="correo" class="form-label">Correo electronico:</label>
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="" aria-label="Correo" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="" id="correo" aria-label="Correo" aria-describedby="basic-addon2">
                     <span class="input-group-text" id="basic-addon2">@example.com</span>
                   </div>
                  
                 </div>
                 <div class="mb-3">
-                  <label for="contrasena" class="form-label">Contraseña:</label>
-                  <input type="password" class="form-control" id="contrasena" required>
+                  <label for="contraseña" class="form-label">Contraseña:</label>
+                  <input type="password" class="form-control" id="password" required>
                 </div>
                 <div class="mb-3">
-                  <label for="confirmarContrasena" class="form-label">Confirmar Contraseña:</label>
-                  <input type="password" class="form-control" id="confirmarContrasena" required>
+                  <label for="confirmarContraseña" class="form-label">Confirmar Contraseña:</label>
+                  <input type="password" class="form-control" id="repetir" required>
                 </div>
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input" id="terminos" required>
-                </div>
-                <div class="row">
-                  <label class="form-check-label text-center" for="terminos">Acepto los términos y condiciones</label>
+                  <label class="form-check-label" for="terminos">Acepto los términos y condiciones</label>
                 </div>
                 <div class="mb-3 text-center"> 
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-primary" onclick="Registrar_Trabajador()">Registrar</button>
                   </div>
               </form>
-              <p class="text-center">¿Ya te registraste? <a href="login.html">Iniciar Sesión</a></p>
+              <p>¿Ya te registraste? <a href="Login-Usu.html">Iniciar Sesión</a></p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   <footer class="text-center text-lg-start bg-white text-muted">
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
       <div class="me-5 d-none d-lg-block">
@@ -230,8 +216,9 @@
       <a class="text-reset fw-bold" href="https://www.unibarranquilla.edu.co/">IUB</a>
     </div>
   </footer>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/Registro-Trab.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="Registro-Usu.js"></script>
-  <script src="Registro-Trab.js"></script>
 </body>
 </html>
