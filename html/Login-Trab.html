@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/bootstrap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -33,28 +33,30 @@
 </header>
 
 <body class="bg-body-secondary">
+
+  <a href="../index.html" class="btn btn-outline-secondary"> <i class="bi bi-box-arrow-left"></i>Ir a la página principal</a>
+
   <div class="container py-5">
     <div id="registroContainer" class="py-5">
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-6 offset-md-3">
-          <div class="card py-4 bg-primary-subtle">
+          <div class="card py-4 bg-secondary bg-opacity-75">
             <div class="card-body">
            
-                <h1>Inicio de Sesión de Trabajador</h1>
+                <h1 class="fs-1">Iniciar sesion</h1>
+
                 <div class="mb-3">
                   <label for="correo" class="form-label">Correo electrónico</label>
                   <input type="email" class="form-control" id="correo" required>
                 </div>
+
                 <div class="mb-3">
                   <label for="contrasena" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="contrasena" required>
+                  <input type="password" class="form-control" id="password" required>
                 </div>
-                <div class="mb-3">
-                  <label for="noIdentidad" class="form-label">No de identidad</label>
-                  <input type="text" class="form-control" id="noIdentidad" required>
-                </div>
+
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary" onclick="iniciarSesionTrabajador()">Iniciar Sesión</button>
+                  <button type="button" class="btn btn-primary" onclick="LoginTrab()">Iniciar Sesión</button>
                 </div>
                 
             </div>
@@ -158,7 +160,9 @@
     </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
-
+  <script src="../js/Inicio-Trab.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

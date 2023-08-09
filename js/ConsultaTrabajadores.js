@@ -28,7 +28,7 @@ function agregarcontacto() {
 function consultar_total() {
   axios({
     method: 'GET',
-    url: 'http://127.0.0.1:3000/getAll',
+    url: 'http://127.0.0.1:3000/getTrab',
 
   }).then(function (response) {
 
@@ -53,6 +53,10 @@ function consultar_total() {
 
       cell5 = nuevaFila.insertCell(5);
       cell5.innerHTML = response.data[i].Telefono;
+      
+      cell6  = nuevaFila.insertCell(6);
+      cell6.innerHTML =   `<a class="btn btn-primary mx-5 " onClick="onEdit(this)">Edit</a>
+          <a class= "btn btn-danger " onClick="onDelete(this)">Delete</a>`;
 
     }
 

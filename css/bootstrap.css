@@ -4080,6 +4080,13 @@ textarea.form-control-lg {
   overflow-y: auto;
 }
 
+.slide{
+  margin-top: 10px;
+}
+.slide img{
+  height: 75vh;
+}
+
 @media (min-width: 576px) {
   .navbar-expand-sm {
     flex-wrap: nowrap;

@@ -15,9 +15,33 @@ mysql = MySQL(app)
 
 app.secret_key = "mysecretkey"
 
+
 @cross_origin()
-@app.route('/getAll', methods=['GET'])
-def getAll():
+@app.route('/getCompare', methods=['POST'])
+def getCompare():
+    try:       
+        v_Correo= request.json['Correo']
+        v_Password=request.json['Password']
+        cur = mysql.connection.corsor()
+        cur.execute('SELECT Correo, Password FROM trabajadores where Correo =%s AND Password = %s',(v_Correo, v_Password))
+        rv = cur.fetchall()
+        cur.close()
+        payload = []
+        content = {}
+
+        for result in rv:
+            content = {'Correo': result[0], 'Password': result[1], 'id': result[2] }
+            payload.append(content)
+            content = {}
+        return jsonify(payload)
+    except Exception as e:
+        print(e)
+        return jsonify({"informacion":e})
+
+
+@cross_origin()
+@app.route('/getTrab', methods=['GET'])
+def getTrab():
     try:
         cur = mysql.connection.cursor()
         cur.execute('SELECT * FROM trabajadores')
@@ -26,7 +50,7 @@ def getAll():
         payload = []
         content = {}
         for result in rv:
-            content = {'Id': result[0], 'Nombre': result[1], 'Apellido': result[2], 'Edad': result[3], 'Profesion':result[4], 'Telefono':result[5], 'correo':result[5], 'contraseña':result[6]}
+            content = {'Id': result[0], 'Nombre': result[1], 'Apellido': result[2], 'Edad': result[3], 'Profesion':result[4], 'Telefono':result[5], 'Correo':result[5], 'Contraseña':result[6]}
             payload.append(content)
             content = {}
         return jsonify(payload)
@@ -57,6 +81,25 @@ def add_Trab():
         return jsonify({"informacion":e})
 
 @cross_origin()
+@app.route('/add_Usu', methods=['POST'])
+def add_Usu():
+    try:
+        if request.method == 'POST':
+            Nombre= request.json['Nombre']
+            Apellido= request.json['Apellido']
+            Edad=request.json['Edad']
+            Telefono=request.json['Telefono']
+            Correo = request.json['Correo']
+            Password = request.json['Password']
+            cur = mysql.connection.cursor()
+            cur.execute("INSERT INTO usuarios (Nombre, Apellido,Edad,Telefono,Correo,Password) VALUES (%s,%s,%s,%s,%s,%s)", (Nombre, Apellido, Edad,Telefono,Correo,Password))
+            mysql.connection.commit()
+            return jsonify({"informacion":"Registro exitoso"})
+    except Exception as e:
+        print(e)
+        return jsonify({"informacion":e})
+
+@cross_origin()
 @app.route('/getAllById/<id>', methods=['GET'])
 def getAllById(id):
     try:
@@ -74,6 +117,11 @@ def getAllById(id):
     except Exception as e:
         print(e)
         return jsonify({"informacion":e})
+
+
+
+
+
 
 
     

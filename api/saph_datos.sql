@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2023 a las 01:06:01
+-- Tiempo de generación: 09-08-2023 a las 04:07:42
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -102,15 +102,17 @@ CREATE TABLE `trabajadores` (
   `Apellido` varchar(15) DEFAULT NULL,
   `Edad` varchar(15) DEFAULT NULL,
   `Profesion` varchar(15) DEFAULT NULL,
-  `Telefono` varchar(15) DEFAULT NULL
+  `Telefono` varchar(15) DEFAULT NULL,
+  `Correo` varchar(255) DEFAULT NULL,
+  `Password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `trabajadores`
 --
 
-INSERT INTO `trabajadores` (`ID`, `Nombre`, `Apellido`, `Edad`, `Profesion`, `Telefono`) VALUES
-(1, 'Brian', 'Tapia', '19', 'Tecnico', '3008532396');
+INSERT INTO `trabajadores` (`ID`, `Nombre`, `Apellido`, `Edad`, `Profesion`, `Telefono`, `Correo`, `Password`) VALUES
+(44, 'Brian', 'Tapia', '19', 'Tecnico de sist', '3008532396', 'brianmigueltapia@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -140,23 +142,14 @@ INSERT INTO `usuario` (`Id_usuario`, `Nombre`, `Apellido`, `Edad`, `Telefono`) V
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `correo` varchar(255) NOT NULL,
-  `contrasena` varchar(255) NOT NULL,
-  `rol` varchar(255) NOT NULL,
-  `genero` varchar(20) NOT NULL
+  `ID` int(255) NOT NULL,
+  `Nombre` varchar(255) DEFAULT NULL,
+  `Apellido` varchar(255) DEFAULT NULL,
+  `Edad` varchar(255) DEFAULT NULL,
+  `Telefono` varchar(255) DEFAULT NULL,
+  `Correo` varchar(255) DEFAULT NULL,
+  `Password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasena`, `rol`, `genero`) VALUES
-(1, 'ruben', 'rub@unibarranquilla.edu.co', '123', 'administrador', ''),
-(2, 'brian', 'briat@unibarranquilla.edu.co', '123', 'administrador', ''),
-(3, 'lourdes', 'lordesa@unibarranquilla.edu.co', '123', 'asesor', ''),
-(4, 'Lourdes', 'ldesr@unibarranquilla.edu.co', '12345', 'administrador', '');
 
 -- --------------------------------------------------------
 
@@ -218,7 +211,7 @@ ALTER TABLE `usuario`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indices de la tabla `usuario_trabajador`
@@ -236,13 +229,13 @@ ALTER TABLE `usuario_trabajador`
 -- AUTO_INCREMENT de la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
-  MODIFY `ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2902;
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
